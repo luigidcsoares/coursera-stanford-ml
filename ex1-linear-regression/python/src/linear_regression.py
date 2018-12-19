@@ -15,7 +15,7 @@ def compute_cost(X, y, theta):
     :param ndarray y: a column vector where each row refers
     to the output of each training example.
 
-    :param ndarray: a column vector used as parameter.
+    :param ndarray theta: a column vector used as parameter.
     for linear regression.
 
     :return: cost J.
