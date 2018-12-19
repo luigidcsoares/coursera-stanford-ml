@@ -5,7 +5,7 @@ such as for computing cost and doing gradient descent.
 import numpy as np
 
 
-def compute_cost(X, y, theta):
+def cost(X, y, theta):
     """ Computes the cost of using theta as the parameter
     for linear regression to fit the data points in X and y.
 
@@ -25,4 +25,4 @@ def compute_cost(X, y, theta):
     # Number of training examples.
     m = X.shape[0]
 
-    return np.sum(np.square(X @ theta) - y) / (2 * m)
+    return np.sum(np.square(X @ theta - y)) / (2 * m)
