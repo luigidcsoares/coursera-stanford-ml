@@ -52,10 +52,31 @@ def gradient_descent(X, y, theta, alpha, num_iters):
     # Number of training examples.
     m = X.shape[0]
 
-    # Do not override theta
+    # Do not override theta.
     t = theta.copy()
 
     for _ in range(num_iters):
         t = t - (alpha / m) * (np.transpose(X) @ (X @ t - y))
 
     return t
+
+
+def normalize(X):
+    """ Computes the cost of using theta as the parameter
+    for linear regression to fit the data points in X and y.
+
+    :param ndarray X: a matrix where each row is a training
+    example and each column refers to a feature.
+
+    :return: normalized version of X where the mean value of each
+    feature is 0 and the standard deviation is 1.
+
+    :rtype: tuple (X_norm, mu, sigma) where mu is the mean o X values
+    and sigma is the standard deviation.
+    """
+
+    mu = np.mean(X)
+    sigma = np.std(X)
+    X_norm = (X - mu) / sigma
+
+    return (X_norm, mu, sigma)
